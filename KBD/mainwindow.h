@@ -15,7 +15,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    string GetFile();
+    int GetSelectedInput();
+    int GetSelectedLayer();
 
+    void SetStatus(int);
+    void SetSelectInput(vector<string>);
+    void SetSelectLayer(vector<string>);
+    void UpdateProgressBar(int);
+    void UpdateProgressStatus(string);
 private:
     Ui::MainWindow *ui;
 };
