@@ -29,18 +29,21 @@ SOURCES += \
         mainwindow.cpp \
     control.cpp \
     sender.cpp \
-    browsewindow.cpp
+    browsewindow.cpp \
+    fileeditor.cpp
 
 HEADERS += \
         mainwindow.h \
     control.h \
     stdafx.h \
     sender.h \
-    browsewindow.h
+    browsewindow.h \
+    fileeditor.h
 
 FORMS += \
         mainwindow.ui \
-    browsewindow.ui
+    browsewindow.ui \
+    fileeditor.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

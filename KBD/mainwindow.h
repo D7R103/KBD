@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "control.h"
 #include "browsewindow.h"
+#include "fileeditor.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,10 +32,12 @@ private slots:
     void StartModification();
     void StopModification();
     void OpenBrowseWindow();
+    void OpenEditWindow();
 
 private:
     Ui::MainWindow *ui;
     BrowseWindow *bui;
+    FileEditor *fui;
     Control * _c;
     Sender * _s;
 };

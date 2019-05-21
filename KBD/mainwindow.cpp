@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
 {
     ui->setupUi(this);
     bui = new BrowseWindow(this);
+    fui = new FileEditor(this);
     _c = c;
     _s = s;
 }
@@ -46,6 +47,13 @@ void MainWindow::OpenBrowseWindow()
 {
     this->hide();
     bui->show();
+}
+
+void MainWindow::OpenEditWindow()
+{
+    this->hide();
+    fui->SetPath(0);
+    fui->show();
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)

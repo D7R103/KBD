@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "stdafx.h"
+#include <QFileSystemModel>
 
 namespace Ui {
 class BrowseWindow;
@@ -21,6 +22,8 @@ void CloseWindow();
 
 private:
     Ui::BrowseWindow *ui;
+
+    void LoadExplorer();
 };
 
 #endif // BROWSEWINDOW_H
