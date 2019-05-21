@@ -10,7 +10,7 @@ public:
     Control();
     void SelectMap(string);
     void Start();
-    void SetStatus(int);
+    void SetStatus();
     ~Control();
 
 private:

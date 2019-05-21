@@ -53,6 +53,17 @@ void MainWindow::SetStatus(int status)
     }
 }
 
+void MainWindow::UpdateProgressBar(int percent)
+{
+    ui->bar_progress->setValue(percent);
+}
+
+void MainWindow::UpdateProgressStatus(string status)
+{
+    QString item = QString::fromStdString(status);
+    ui->lbl_progstatus->setText(item);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
