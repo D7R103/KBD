@@ -8,6 +8,12 @@ BrowseWindow::BrowseWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void BrowseWindow::CloseWindow()
+{
+    this->hide();
+    parentWidget()->show();
+}
+
 BrowseWindow::~BrowseWindow()
 {
     delete ui;

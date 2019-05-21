@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    bui = new BrowseWindow();
+    bui = new BrowseWindow(this);
     _c = c;
     _s = s;
 }
@@ -44,7 +44,6 @@ void MainWindow::StopModification()
 
 void MainWindow::OpenBrowseWindow()
 {
-    cout << "Opening Browse Window" << endl;
     this->hide();
     bui->show();
 }

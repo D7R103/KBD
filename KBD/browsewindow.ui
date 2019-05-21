@@ -31,8 +31,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>450</width>
-      <height>192</height>
+      <width>361</width>
+      <height>281</height>
      </rect>
     </property>
     <column>
@@ -44,8 +44,8 @@
    <widget class="QPushButton" name="btn_cancel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>220</y>
+      <x>380</x>
+      <y>150</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -57,8 +57,8 @@
    <widget class="QPushButton" name="btn_ok">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>220</y>
+      <x>380</x>
+      <y>110</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -68,17 +68,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>476</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections>
@@ -86,17 +75,20 @@
    <sender>btn_cancel</sender>
    <signal>pressed()</signal>
    <receiver>BrowseWindow</receiver>
-   <slot>close()</slot>
+   <slot>CloseWindow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>254</y>
+     <x>88</x>
+     <y>257</y>
     </hint>
     <hint type="destinationlabel">
-     <x>237</x>
-     <y>149</y>
+     <x>132</x>
+     <y>258</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>CloseWindow()</slot>
+ </slots>
 </ui>
