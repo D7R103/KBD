@@ -2,21 +2,24 @@
 #define CONTROL_H
 
 #include "stdafx.h"
-#include "mainwindow.h"
+#include "sender.h"
 
 class Control
 {
 public:
-    Control();
+    Control(Sender *);
+    void SelectedLayer(int);
+    void SelectedInput(int);
     void SelectMap(string);
-    void Start();
-    void SetStatus();
-    ~Control();
+    void SetStatus(int);
 
 private:
-    MainWindow * _w;
-    int _status;
+    Sender * _s;
+    int _status, _inputDevID, _layerID;
+    vector<string> * _devices;
+    vector<vector<string>> * _layers;
     void LoadInputDevices();
+    ~Control();
 };
 
 #endif // CONTROL_H

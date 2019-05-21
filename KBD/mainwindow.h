@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "stdafx.h"
+#include "control.h"
+#include "browsewindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -13,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr, Control * c = nullptr, Sender * s = nullptr);
     ~MainWindow();
 
     void SetStatus(int);
@@ -22,11 +24,19 @@ public:
     void UpdateProgressBar(int);
     void UpdateProgressStatus(string);
     string GetFile();
-    int GetSelectedInput();
-    int GetSelectedLayer();
+
+private slots:
+    void GetSelectedBoard();
+    void GetSelectedLayer();
+    void StartModification();
+    void StopModification();
+    void OpenBrowseWindow();
 
 private:
     Ui::MainWindow *ui;
+    BrowseWindow *bui;
+    Control * _c;
+    Sender * _s;
 };
 
 #endif // MAINWINDOW_H

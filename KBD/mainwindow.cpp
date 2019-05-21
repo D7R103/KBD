@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    bui = new BrowseWindow();
+    _c = c;
+    _s = s;
 }
 
 string MainWindow::GetFile()
@@ -13,14 +16,37 @@ string MainWindow::GetFile()
     return ui->lbl_fileloaded->text().toStdString();
 }
 
-int MainWindow::GetSelectedInput()
+void MainWindow::GetSelectedBoard()
 {
-    return ui->box_selectboard->currentIndex();
+    int i =  ui->box_selectboard->currentIndex();
+    _c->SelectedInput(i);
 }
 
-int MainWindow::GetSelectedLayer()
+void MainWindow::GetSelectedLayer()
 {
-    return ui->box_selectlayer->currentIndex();
+    int i =  ui->box_selectlayer->currentIndex();
+    _c->SelectedLayer(i);
+}
+
+void MainWindow::StartModification()
+{
+    _c->SetStatus(1);
+    QString i = QString::fromStdString(_s->GetStrData());
+    ui->lbl_status->setText(i);
+}
+
+void MainWindow::StopModification()
+{
+    _c->SetStatus(0);
+    QString i = QString::fromStdString(_s->GetStrData());
+    ui->lbl_status->setText(i);
+}
+
+void MainWindow::OpenBrowseWindow()
+{
+    cout << "Opening Browse Window" << endl;
+    this->hide();
+    bui->show();
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)
@@ -67,4 +93,5 @@ void MainWindow::UpdateProgressStatus(string status)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete bui;
 }
