@@ -40,6 +40,9 @@ private:
     FileEditor *fui;
     Control * _c;
     Sender * _s;
+    string _filePath;
+
+    void showEvent(QShowEvent *);
 };
 
 #endif // MAINWINDOW_H

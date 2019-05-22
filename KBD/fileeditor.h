@@ -2,6 +2,7 @@
 #define FILEEDITOR_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
 #include "stdafx.h"
 
 namespace Ui {
@@ -16,14 +17,17 @@ public:
     explicit FileEditor(QWidget *parent = nullptr);
     ~FileEditor();
 
-    void SetPath(int);
+    void SetPath(int, string path = "");
 
 private slots:
     void CloseWindow();
+    void InsertComment();
 
 private:
     Ui::FileEditor *ui;
-    int _pathe;
+    bool _saveState = false;
+    void Load(string);
+    void closeEvent(QCloseEvent *);
 };
 
 #endif // FILEEDITOR_H

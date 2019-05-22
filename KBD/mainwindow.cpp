@@ -14,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
 
 string MainWindow::GetFile()
 {
-    return ui->lbl_fileloaded->text().toStdString();
+    //do something
+    return nullptr;
 }
 
 void MainWindow::GetSelectedBoard()
@@ -54,6 +55,13 @@ void MainWindow::OpenEditWindow()
     this->hide();
     fui->SetPath(0);
     fui->show();
+}
+
+void MainWindow::showEvent(QShowEvent *)
+{
+    _filePath = bui->GetFile();
+    ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_filePath));
+    // read file
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)

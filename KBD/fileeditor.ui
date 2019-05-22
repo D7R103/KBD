@@ -26,25 +26,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QScrollBar" name="verticalScrollBar">
-    <property name="geometry">
-     <rect>
-      <x>464</x>
-      <y>40</y>
-      <width>10</width>
-      <height>260</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="txt_edit">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>452</width>
+      <width>456</width>
       <height>260</height>
      </rect>
     </property>
@@ -57,7 +44,7 @@
    <widget class="QPushButton" name="btn_save">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>375</x>
       <y>10</y>
       <width>89</width>
       <height>25</height>
@@ -109,6 +96,7 @@
     </property>
     <addaction name="actionNew_Layer"/>
     <addaction name="actionNew_Key_Binding"/>
+    <addaction name="actionComment"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -179,6 +167,17 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
+  <action name="actionComment">
+   <property name="text">
+    <string>Insert Comment</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Comment</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
@@ -214,8 +213,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionComment</sender>
+   <signal>triggered()</signal>
+   <receiver>FileEditor</receiver>
+   <slot>InsertComment()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>CloseWindow()</slot>
+  <slot>InsertComment()</slot>
+  <slot>Undo()</slot>
+  <slot>Redo()</slot>
  </slots>
 </ui>
