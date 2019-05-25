@@ -15,6 +15,7 @@ FileEditor::FileEditor(QWidget *parent) :
 
 void FileEditor::SetPath(int p, string path)
 {
+    ui->txt_edit->setPlainText("");
     if (p != 0)
     {
         Load(path);
@@ -40,6 +41,19 @@ void FileEditor::CloseWindow()
     if (!_saveState && ui->txt_edit->toPlainText().size() != 0)
     {
         //ask to save
+        //prevent focus on this
+        //open dialog
+        cd = new ConfirmDialog();
+        cd->exec();
+
+        if (cd->ExitRequest())
+        {
+            this->hide();
+            parentWidget()->show();
+        }
+
+        cd->~ConfirmDialog();
+        cd = nullptr;
     }
     else
     {
@@ -64,4 +78,5 @@ void FileEditor::InsertComment()
 FileEditor::~FileEditor()
 {
     delete ui;
+    delete cd;
 }

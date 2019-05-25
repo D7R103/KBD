@@ -78,19 +78,6 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_progstatus">
-    <property name="geometry">
-     <rect>
-      <x>5</x>
-      <y>240</y>
-      <width>465</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ready :</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btn_selectfile">
     <property name="geometry">
      <rect>
@@ -187,6 +174,7 @@
      <string>&amp;Edit</string>
     </property>
     <addaction name="actionNew_Map_File"/>
+    <addaction name="actionEdit_Current_Map_File"/>
    </widget>
    <widget class="QMenu" name="menuActions">
     <property name="title">
@@ -270,6 +258,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionEdit_Current_Map_File">
+   <property name="text">
+    <string>Edit Current Map File</string>
    </property>
   </action>
  </widget>
@@ -395,8 +388,8 @@
    <slot>OpenEditWindow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>237</x>
-     <y>173</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>237</x>

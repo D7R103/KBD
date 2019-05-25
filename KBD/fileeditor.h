@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include "stdafx.h"
+#include "confirmdialog.h"
 
 namespace Ui {
 class FileEditor;
@@ -25,7 +26,9 @@ private slots:
 
 private:
     Ui::FileEditor *ui;
+    ConfirmDialog *cd;
     bool _saveState = false;
+
     void Load(string);
     void closeEvent(QCloseEvent *);
 };

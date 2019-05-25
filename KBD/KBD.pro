@@ -30,7 +30,8 @@ SOURCES += \
     control.cpp \
     sender.cpp \
     browsewindow.cpp \
-    fileeditor.cpp
+    fileeditor.cpp \
+    confirmdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,12 +39,14 @@ HEADERS += \
     stdafx.h \
     sender.h \
     browsewindow.h \
-    fileeditor.h
+    fileeditor.h \
+    confirmdialog.h
 
 FORMS += \
         mainwindow.ui \
     browsewindow.ui \
-    fileeditor.ui
+    fileeditor.ui \
+    confirmdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

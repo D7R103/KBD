@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->bar_progress->hide();
+
     bui = new BrowseWindow(this);
     fui = new FileEditor(this);
     _c = c;
@@ -102,11 +104,11 @@ void MainWindow::UpdateProgressBar(int percent)
 void MainWindow::UpdateProgressStatus(string status)
 {
     QString item = QString::fromStdString(status);
-    ui->lbl_progstatus->setText(item);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete bui;
+    delete fui;
 }
