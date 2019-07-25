@@ -13,11 +13,13 @@ public:
     void SelectMap(string);
     void SetStatus(int);
 
+    vector<string> * GetLayers();
 private:
     Sender * _s;
     int _status, _inputDevID, _layerID;
     vector<string> * _devices;
     vector<vector<string>> * _layers;
+    vector<string> * _layerNames;
     void LoadInputDevices();
     ~Control();
 };

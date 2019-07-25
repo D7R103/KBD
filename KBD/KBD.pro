@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    bidirection.cpp \
         main.cpp \
         mainwindow.cpp \
     control.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
     confirmdialog.cpp
 
 HEADERS += \
+    bidirection.h \
         mainwindow.h \
     control.h \
     stdafx.h \

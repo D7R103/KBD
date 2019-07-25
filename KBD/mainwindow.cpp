@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
     fui = new FileEditor(this);
     _c = c;
     _s = s;
+
+    _filePath = nullptr;
 }
 
 string MainWindow::GetFile()
@@ -63,8 +65,7 @@ void MainWindow::showEvent(QShowEvent *)
 {
     _filePath = bui->GetFile();
     ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_filePath));
-    // set variable in Control
-    // send notification to something in Control
+    _c->SelectMap(_filePath);
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)
@@ -76,8 +77,9 @@ void MainWindow::SetSelectInput(vector<string> inputs)
     }
 }
 
-void MainWindow::SetSelectLayer(vector<string> layers)
+void MainWindow::SetSelectLayer()
 {
+    vector<string> layers = *_c->GetLayers();
     for (size_t i = 0; i < layers.size(); i++)
     {
         QString item = QString::fromStdString(layers.at(i));
@@ -97,9 +99,9 @@ void MainWindow::SetStatus(int status)
     }
 }
 
-void MainWindow::UpdateProgressBar(int percent)
+void MainWindow::UpdateProgressBar(double percent)
 {
-    ui->bar_progress->setValue(percent);
+    ui->bar_progress->setValue(percent * 100);
 }
 
 void MainWindow::UpdateProgressStatus(string status)

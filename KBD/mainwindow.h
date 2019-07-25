@@ -21,8 +21,7 @@ public:
 
     void SetStatus(int);
     void SetSelectInput(vector<string>);
-    void SetSelectLayer(vector<string>);
-    void UpdateProgressBar(int);
+    void SetSelectLayer();
     void UpdateProgressStatus(string);
     string GetFile();
 
@@ -43,6 +42,7 @@ private:
     string _filePath;
 
     void showEvent(QShowEvent *);
+    void UpdateProgressBar(double);
 };
 
 #endif // MAINWINDOW_H
