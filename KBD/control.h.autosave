@@ -13,7 +13,7 @@ public:
     void SelectMap(string);
     void SetStatus(int);
 
-    auto fn_read_file = std::bind (_c->SelectMap, _1);
+//    auto fn_read_file = std::bind (_c->SelectMap, _1);
 
 private:
     Sender * _s;

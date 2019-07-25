@@ -7,6 +7,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <functional>
 
 using std::string;
 using std::cin;
@@ -14,5 +15,6 @@ using std::cout;
 using std::endl;
 using std::getline;
 using std::vector;
+using namespace std::placeholders;
 
 #endif // STDAFX_H
