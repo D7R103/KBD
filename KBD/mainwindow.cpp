@@ -63,7 +63,8 @@ void MainWindow::showEvent(QShowEvent *)
 {
     _filePath = bui->GetFile();
     ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_filePath));
-    // read file
+    // set variable in Control
+    // send notification to something in Control
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)

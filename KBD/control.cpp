@@ -11,6 +11,9 @@ Control::Control(Sender * s)
 void Control::LoadInputDevices()
 {
     //
+    // read device location(s)
+    // scan for keyboards
+    // place into _devices
 
     _s->SetData(_devices);
 }
