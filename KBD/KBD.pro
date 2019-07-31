@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-05-20T18:10:40
+# Project created by QtCreator 2019-08-02T17:57:29
 #
 #-------------------------------------------------
 
@@ -25,32 +25,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    bidirection.cpp \
+        browsewindow.cpp \
+        confirmdialog.cpp \
+        control.cpp \
+        fileeditor.cpp \
         main.cpp \
         mainwindow.cpp \
-    control.cpp \
-    sender.cpp \
-    browsewindow.cpp \
-    fileeditor.cpp \
-    confirmdialog.cpp
+        sender.cpp
 
 HEADERS += \
-    bidirection.h \
+        browsewindow.h \
+        confirmdialog.h \
+        control.h \
+        fileeditor.h \
         mainwindow.h \
-    control.h \
-    stdafx.h \
-    sender.h \
-    browsewindow.h \
-    fileeditor.h \
-    confirmdialog.h
+        sender.h \
+        stdafx.h
 
 FORMS += \
-        mainwindow.ui \
-    browsewindow.ui \
-    fileeditor.ui \
-    confirmdialog.ui
+        browsewindow.ui \
+        confirmdialog.ui \
+        fileeditor.ui \
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
