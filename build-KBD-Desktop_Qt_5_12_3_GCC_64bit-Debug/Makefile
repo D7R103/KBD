@@ -1404,8 +1404,23 @@ browsewindow.o: ../KBD/browsewindow.cpp ../KBD/browsewindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		../KBD/sender.h \
 		ui_browsewindow.h \
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+		../KBD/fileeditor.h \
+		../KBD/confirmdialog.h \
+=======
+		../KBD/sender.h \
+		../KBD/ui_browsewindow.h \
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h \
@@ -1423,6 +1438,18 @@ browsewindow.o: ../KBD/browsewindow.cpp ../KBD/browsewindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o browsewindow.o ../KBD/browsewindow.cpp
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+
+confirmdialog.o: ../KBD/confirmdialog.cpp ../KBD/confirmdialog.h \
+>>>>>>> Stashed changes
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../KBD/main.cpp
+>>>>>>> Stashed changes
 
 confirmdialog.o: ../KBD/confirmdialog.cpp ../KBD/confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
@@ -1529,7 +1556,54 @@ confirmdialog.o: ../KBD/confirmdialog.cpp ../KBD/confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		ui_confirmdialog.h \
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qicon.h \
+		../KBD/stdafx.h \
+		../KBD/control.h \
+		../KBD/sender.h \
+		../KBD/browsewindow.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QFileSystemModel \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdir.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../KBD/fileeditor.h \
+		../KBD/confirmdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		ui_mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../KBD/mainwindow.cpp
+=======
+		../KBD/ui_confirmdialog.h \
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h \
@@ -1544,6 +1618,13 @@ confirmdialog.o: ../KBD/confirmdialog.cpp ../KBD/confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmdialog.o ../KBD/confirmdialog.cpp
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 control.o: ../KBD/control.cpp ../KBD/control.h \
 		../KBD/stdafx.h \
@@ -1657,12 +1738,35 @@ fileeditor.o: ../KBD/fileeditor.cpp ../KBD/fileeditor.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qicon.h \
+<<<<<<< Updated upstream
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
 		../KBD/stdafx.h \
 		../KBD/confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
 		ui_fileeditor.h \
+=======
+		../KBD/stdafx.h \
+<<<<<<< Updated upstream
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QFileSystemModel \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdir.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+=======
+		../KBD/confirmdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		../KBD/ui_fileeditor.h \
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QAction \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h \
@@ -1681,6 +1785,13 @@ fileeditor.o: ../KBD/fileeditor.cpp ../KBD/fileeditor.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QPlainTextEdit \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qplaintextedit.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h \
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h \
@@ -1953,6 +2064,19 @@ mainwindow.o: ../KBD/mainwindow.cpp ../KBD/mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+		ui_confirmdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmdialog.o ../KBD/confirmdialog.cpp
+=======
+>>>>>>> Stashed changes
+=======
+		ui_confirmdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmdialog.o ../KBD/confirmdialog.cpp
+=======
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qicon.h \
 		../KBD/stdafx.h \
@@ -1986,7 +2110,15 @@ mainwindow.o: ../KBD/mainwindow.cpp ../KBD/mainwindow.h \
 		../KBD/confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		ui_mainwindow.h \
+=======
+		../KBD/ui_mainwindow.h \
+>>>>>>> Stashed changes
+=======
+		../KBD/ui_mainwindow.h \
+>>>>>>> Stashed changes
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QAction \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h \
@@ -2015,6 +2147,13 @@ mainwindow.o: ../KBD/mainwindow.cpp ../KBD/mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../KBD/mainwindow.cpp
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 sender.o: ../KBD/sender.cpp ../KBD/sender.h \
 		../KBD/stdafx.h
