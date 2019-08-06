@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.1, 2019-06-21T18:51:31. -->
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<!-- Written by QtCreator 4.9.2, 2019-08-02T18:22:12. -->
+=======
+<!-- Written by QtCreator 4.9.2, 2019-07-31T05:55:54. -->
+>>>>>>> dev
+=======
+<!-- Written by QtCreator 4.9.2, 2019-08-06T09:50:32. -->
+>>>>>>> Stashed changes
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -315,7 +323,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/in/git/KBD/build-KBD-Desktop_Qt_5_12_3_GCC_64bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
