@@ -11,6 +11,8 @@
 #include <fstream>
 #include <algorithm>
 #include <iterator>
+#include <fenv.h>
+#include <math.h>
 
 using std::string;
 using std::cin;
@@ -20,6 +22,7 @@ using std::getline;
 using std::vector;
 using std::ifstream;
 using std::ofstream;
+using std::nearbyint;
 
 using namespace std::placeholders;
 

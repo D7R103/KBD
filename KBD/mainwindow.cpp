@@ -13,13 +13,13 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
     _c = c;
     _s = s;
 
-    _filePath = nullptr;
+    _filePath = "";
 }
 
 string MainWindow::GetFile()
 {
     //do something
-    return nullptr;
+    return "";
 }
 
 void MainWindow::GetSelectedBoard()
@@ -65,7 +65,7 @@ void MainWindow::showEvent(QShowEvent *)
 {
     _filePath = bui->GetFile();
     ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_filePath));
-    _c->SelectMap(_filePath);
+    //_c->SelectMap(_filePath);
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)
@@ -101,7 +101,7 @@ void MainWindow::SetStatus(int status)
 
 void MainWindow::UpdateProgressBar(double percent)
 {
-    ui->bar_progress->setValue(percent * 100);
+    ui->bar_progress->setValue(nearbyint(percent * 100));
 }
 
 void MainWindow::UpdateProgressStatus(string status)

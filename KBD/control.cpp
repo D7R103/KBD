@@ -26,7 +26,7 @@ void Control::SelectMap(string filePath)
 
     //get length of file
     long count = std::count(std::istream_iterator<char>(file),
-            std::istream_iterator<char>(), '\n');
+                            std::istream_iterator<char>(), '\n');
 
     //read each line
     unsigned line_num = 1;

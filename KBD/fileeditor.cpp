@@ -25,6 +25,10 @@ void FileEditor::SetPath(int p, string path)
 void FileEditor::Load(string path)
 {
     // read file
+    if (path != "")
+    {
+        //
+    }
     // convert to QString
     QString text;
     // insert into the box
