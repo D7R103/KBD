@@ -12,7 +12,7 @@ BrowseWindow::BrowseWindow(QWidget *parent) :
 
 void BrowseWindow::LoadExplorer()
 {
-    QFileSystemModel * model = new QFileSystemModel();
+    model = new QFileSystemModel();
     model->setRootPath(QDir::homePath());
     QStringList filter;
     filter << "*.vmap";
@@ -40,6 +40,7 @@ void BrowseWindow::CloseWindow()
 void BrowseWindow::GetSelected()
 {
     QModelIndex index = ui->tr_explorer->currentIndex();
+
     QString text = ui->tr_explorer->model()->data(index).toString();
     if (text.contains(".vmap"))
     {
@@ -50,10 +51,15 @@ void BrowseWindow::GetSelected()
 void BrowseWindow::ReturnSelected()
 {
     QModelIndex index = ui->tr_explorer->currentIndex();
+
     QString text = ui->tr_explorer->model()->data(index).toString();
+    QString path = model->filePath(index);
+
     if (text.contains(".vmap"))
     {
         _file = text.toStdString();
+        _filePath = path.toStdString();
+
         CloseWindow();
     }
 }
@@ -66,6 +72,11 @@ void BrowseWindow::ReturnSelectedAndCloseWindow()
 string BrowseWindow::GetFile()
 {
     return _file;
+}
+
+string BrowseWindow::GetFilePath()
+{
+    return _filePath;
 }
 
 BrowseWindow::~BrowseWindow()

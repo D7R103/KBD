@@ -6,7 +6,6 @@
 #include <QFileSystemModel>
 #include <QCloseEvent>
 #include <QTreeView>
-#include "sender.h"
 
 namespace Ui {
 class BrowseWindow;
@@ -19,6 +18,7 @@ class BrowseWindow : public QMainWindow
 public:
     explicit BrowseWindow(QWidget *parent = nullptr);
     string GetFile();
+    string GetFilePath();
     ~BrowseWindow();
 
 private slots:
@@ -29,7 +29,8 @@ private slots:
 
 private:
     Ui::BrowseWindow *ui;
-    string _file;
+    string _file, _filePath;
+    QFileSystemModel * model;
     void LoadExplorer();
     void closeEvent(QCloseEvent *);
 };

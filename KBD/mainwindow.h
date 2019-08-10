@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "stdafx.h"
-#include "control.h"
 #include "browsewindow.h"
 #include "fileeditor.h"
 
@@ -16,13 +15,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr, Control * c = nullptr, Sender * s = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void SetStatus(int);
     void SetSelectInput(vector<string>);
-    void SetSelectLayer(vector<string>);
-    void UpdateProgressBar(int);
+    void SetSelectLayer();
     void UpdateProgressStatus(string);
     string GetFile();
 
@@ -34,13 +31,20 @@ private slots:
     void OpenBrowseWindow();
     void OpenEditWindow();
 
+public slots:
+    void UpdateProgressBar(int);
+    void SetStatus(string);
+
+signals:
+    void SetStatus(int);
+    void SelectMap(string);
+
 private:
     Ui::MainWindow *ui;
     BrowseWindow *bui;
     FileEditor *fui;
-    Control * _c;
-    Sender * _s;
-    string _filePath;
+    string _file, _filePath, _status;
+    bool _fileSelectionChanged;
 
     void showEvent(QShowEvent *);
 };
