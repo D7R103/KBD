@@ -15,6 +15,7 @@
 #include <math.h>
 
 using std::string;
+using std::wstring;
 using std::cin;
 using std::cout;
 using std::endl;

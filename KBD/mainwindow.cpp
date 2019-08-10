@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -10,10 +10,8 @@ MainWindow::MainWindow(QWidget *parent, Control * c, Sender * s) :
 
     bui = new BrowseWindow(this);
     fui = new FileEditor(this);
-    _c = c;
-    _s = s;
 
-    _filePath = "";
+    _file = "";
 }
 
 string MainWindow::GetFile()
@@ -25,26 +23,29 @@ string MainWindow::GetFile()
 void MainWindow::GetSelectedBoard()
 {
     int i =  ui->box_selectboard->currentIndex();
-    _c->SelectedInput(i);
 }
 
 void MainWindow::GetSelectedLayer()
 {
     int i =  ui->box_selectlayer->currentIndex();
-    _c->SelectedLayer(i);
+}
+
+void MainWindow::SetStatus(string status)
+{
+    _status = status;
 }
 
 void MainWindow::StartModification()
 {
-    _c->SetStatus(1);
-    QString i = QString::fromStdString(_s->GetStrData());
+    SetStatus(1);
+    QString i = QString::fromStdString(_status);
     ui->lbl_status->setText(i);
 }
 
 void MainWindow::StopModification()
 {
-    _c->SetStatus(0);
-    QString i = QString::fromStdString(_s->GetStrData());
+    SetStatus(0);
+    QString i = QString::fromStdString(_status);
     ui->lbl_status->setText(i);
 }
 
@@ -52,6 +53,7 @@ void MainWindow::OpenBrowseWindow()
 {
     this->hide();
     bui->show();
+    _fileSelectionChanged = true;
 }
 
 void MainWindow::OpenEditWindow()
@@ -63,9 +65,15 @@ void MainWindow::OpenEditWindow()
 
 void MainWindow::showEvent(QShowEvent *)
 {
-    _filePath = bui->GetFile();
-    ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_filePath));
-    //_c->SelectMap(_filePath);
+    _file = bui->GetFile();
+    _filePath = bui->GetFilePath();
+    ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_file));
+
+    if (_file != "" && _fileSelectionChanged) // prevents re-reading of file
+    {
+        SelectMap(_filePath);
+        _fileSelectionChanged = false;
+    }
 }
 
 void MainWindow::SetSelectInput(vector<string> inputs)
@@ -79,7 +87,7 @@ void MainWindow::SetSelectInput(vector<string> inputs)
 
 void MainWindow::SetSelectLayer()
 {
-    vector<string> layers = *_c->GetLayers();
+    vector<string> layers ;//= *_c->GetLayers();
     for (size_t i = 0; i < layers.size(); i++)
     {
         QString item = QString::fromStdString(layers.at(i));
@@ -87,26 +95,9 @@ void MainWindow::SetSelectLayer()
     }
 }
 
-void MainWindow::SetStatus(int status)
+void MainWindow::UpdateProgressBar(int percent)
 {
-    if (status == 1)
-    {
-        ui->lbl_status->setText("Running");
-    }
-    else
-    {
-        ui->lbl_status->setText("Stopped");
-    }
-}
-
-void MainWindow::UpdateProgressBar(double percent)
-{
-    ui->bar_progress->setValue(nearbyint(percent * 100));
-}
-
-void MainWindow::UpdateProgressStatus(string status)
-{
-    QString item = QString::fromStdString(status);
+    ui->bar_progress->setValue(percent);
 }
 
 MainWindow::~MainWindow()
