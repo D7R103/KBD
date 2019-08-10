@@ -29,17 +29,17 @@ SOURCES += \
         confirmdialog.cpp \
         control.cpp \
         fileeditor.cpp \
+        interposer.cpp \
         main.cpp \
-        mainwindow.cpp \
-        sender.cpp
+        mainwindow.cpp
 
 HEADERS += \
         browsewindow.h \
         confirmdialog.h \
         control.h \
         fileeditor.h \
+        interposer.h \
         mainwindow.h \
-        sender.h \
         stdafx.h
 
 FORMS += \

@@ -1,15 +1,15 @@
 #include <QApplication>
 #include "control.h"
 #include "mainwindow.h"
-#include "sender.h"
+#include "interposer.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    Interposer * i = new Interposer();
 
-    Sender * sender = new Sender();
-    Control * control = new Control(sender);
-    MainWindow * _w = new MainWindow(nullptr, control, sender);
+    MainWindow * _w = &i->w;
+
     _w->show();
 
     return a.exec();
