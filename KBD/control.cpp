@@ -32,7 +32,7 @@ void Control::SelectMap(string filePath)
     file.close();
     file.open(filePath); // not clean or scaleable, but it works
 
-    cout << "File Length : " << count << endl;
+    cout << "File Length : " << count << " Lines" << endl;
 
     //read each line
     unsigned line_num = 1;
