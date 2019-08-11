@@ -14,6 +14,7 @@
 #include <fenv.h>
 #include <math.h>
 #include <sstream>
+#include <glob.h>
 
 using std::string;
 using std::wstring;

@@ -25,6 +25,7 @@ private slots:
     void StopModification();
     void OpenBrowseWindow();
     void OpenEditWindow();
+    void ForceRescan();
 
 public slots:
     void UpdateProgressBar(int);
@@ -38,6 +39,8 @@ signals:
     void SelectMap(string);
     void SelectedLayer(int);
     void SelectedInput(int);
+    void LoadInputDevices();
+    void ForceDeviceRescan();
 
 private:
     Ui::MainWindow *ui;

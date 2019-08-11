@@ -5,7 +5,9 @@ Control::Control()
     _devices = new vector<string>();
     _layers = new vector<vector<string>>();
     _layerNames = new vector<string>();
-    LoadInputDevices();
+
+    _forceDeviceRescan = false;
+    _numDevices = 0;
 }
 
 void Control::LoadInputDevices()
@@ -14,6 +16,48 @@ void Control::LoadInputDevices()
     // read device location(s)
     // scan for keyboards
     // place into _devices
+
+    string path = "/dev/input/by-path/*";
+
+    vector<string> devices = GlobVector(path);
+
+    if (devices.size() > _numDevices || _forceDeviceRescan)
+    {
+        _numDevices = devices.size();
+
+        _devices->clear();
+
+        for (string dev : devices)
+        {
+            if (dev.find("kbd") != string::npos)
+            {
+            string d = Split(dev, '/').at(4);
+            cout << d << endl;
+            _devices->push_back(d);
+            }
+        }
+
+        //notify UI
+        SetDeviceNames(_devices);
+    }
+}
+
+vector<string> Control::GlobVector(const string& pattern){
+    glob_t glob_result;
+    glob(pattern.c_str(),GLOB_TILDE,NULL,&glob_result);
+    vector<string> files;
+    for(unsigned int i=0;i<glob_result.gl_pathc;++i){
+        files.push_back(string(glob_result.gl_pathv[i]));
+    }
+    globfree(&glob_result);
+    return files;
+}
+
+void Control::ForceRescan()
+{
+    _forceDeviceRescan = true;
+    LoadInputDevices();
+    _forceDeviceRescan = false;
 }
 
 void Control::SelectMap(string filePath)

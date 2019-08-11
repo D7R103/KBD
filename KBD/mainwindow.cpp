@@ -63,6 +63,8 @@ void MainWindow::showEvent(QShowEvent *)
     _filePath = bui->GetFilePath();
     ui->lbl_fileloaded->setText("File : " + QString::fromStdString(_file));
 
+    LoadInputDevices();
+
     if (_file != "" && _fileSelectionChanged) // prevents re-reading of file
     {
         ui->bar_progress->show();
@@ -74,6 +76,7 @@ void MainWindow::showEvent(QShowEvent *)
 
 void MainWindow::SetSelectInput(vector<string> * inputs)
 {
+    ui->box_selectboard->clear();
     for (size_t i = 0; i < inputs->size(); i++)
     {
         ui->box_selectboard->addItem(QString::fromStdString(inputs->at(i)));
@@ -88,6 +91,11 @@ void MainWindow::SetSelectLayer(vector<string> * layers)
     }
 }
 
+void MainWindow::ForceRescan()
+{
+    ForceDeviceRescan();
+}
+
 void MainWindow::UpdateProgressBar(int percent)
 {
     ui->bar_progress->setValue(percent);
@@ -95,7 +103,7 @@ void MainWindow::UpdateProgressBar(int percent)
 
 void MainWindow::SetBarStatus(string status)
 {
-    ui->statusBar->showMessage(QString::fromStdString(status));
+    ui->lbl_barstatus->setText(QString::fromStdString(status));
 }
 
 MainWindow::~MainWindow()

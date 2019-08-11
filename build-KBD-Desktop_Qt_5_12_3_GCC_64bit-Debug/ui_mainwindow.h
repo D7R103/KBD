@@ -45,6 +45,8 @@ public:
     QComboBox *box_selectlayer;
     QLabel *lbl_selectlayer;
     QLabel *lbl_fileloaded;
+    QPushButton *btn_forcerescan;
+    QLabel *lbl_barstatus;
     QMenuBar *menuBar;
     QMenu *menuEdit;
     QMenu *menuActions;
@@ -82,7 +84,7 @@ public:
         bar_progress->setValue(0);
         lbl_selectfile = new QLabel(centralWidget);
         lbl_selectfile->setObjectName(QString::fromUtf8("lbl_selectfile"));
-        lbl_selectfile->setGeometry(QRect(11, 80, 110, 17));
+        lbl_selectfile->setGeometry(QRect(11, 107, 110, 17));
         lbl_selectboard = new QLabel(centralWidget);
         lbl_selectboard->setObjectName(QString::fromUtf8("lbl_selectboard"));
         lbl_selectboard->setGeometry(QRect(11, 20, 180, 17));
@@ -92,7 +94,7 @@ public:
         box_selectboard->setMouseTracking(false);
         btn_selectfile = new QPushButton(centralWidget);
         btn_selectfile->setObjectName(QString::fromUtf8("btn_selectfile"));
-        btn_selectfile->setGeometry(QRect(10, 100, 104, 25));
+        btn_selectfile->setGeometry(QRect(10, 127, 104, 25));
         btn_selectfile->setCursor(QCursor(Qt::PointingHandCursor));
         lbl_systemstatus = new QLabel(centralWidget);
         lbl_systemstatus->setObjectName(QString::fromUtf8("lbl_systemstatus"));
@@ -109,7 +111,14 @@ public:
         lbl_selectlayer->setGeometry(QRect(302, 100, 159, 17));
         lbl_fileloaded = new QLabel(centralWidget);
         lbl_fileloaded->setObjectName(QString::fromUtf8("lbl_fileloaded"));
-        lbl_fileloaded->setGeometry(QRect(10, 130, 111, 17));
+        lbl_fileloaded->setGeometry(QRect(10, 156, 111, 17));
+        btn_forcerescan = new QPushButton(centralWidget);
+        btn_forcerescan->setObjectName(QString::fromUtf8("btn_forcerescan"));
+        btn_forcerescan->setGeometry(QRect(10, 70, 104, 25));
+        btn_forcerescan->setCursor(QCursor(Qt::PointingHandCursor));
+        lbl_barstatus = new QLabel(centralWidget);
+        lbl_barstatus->setObjectName(QString::fromUtf8("lbl_barstatus"));
+        lbl_barstatus->setGeometry(QRect(0, 290, 241, 17));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -146,6 +155,7 @@ public:
         QObject::connect(btn_selectfile, SIGNAL(clicked()), MainWindow, SLOT(OpenBrowseWindow()));
         QObject::connect(actionOpen, SIGNAL(triggered()), MainWindow, SLOT(OpenBrowseWindow()));
         QObject::connect(actionNew_Map_File, SIGNAL(triggered()), MainWindow, SLOT(OpenEditWindow()));
+        QObject::connect(btn_forcerescan, SIGNAL(clicked()), MainWindow, SLOT(ForceRescan()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -186,6 +196,8 @@ public:
         lbl_status->setText(QApplication::translate("MainWindow", "Stopped", nullptr));
         lbl_selectlayer->setText(QApplication::translate("MainWindow", "Select Layer", nullptr));
         lbl_fileloaded->setText(QString());
+        btn_forcerescan->setText(QApplication::translate("MainWindow", "Rescan...", nullptr));
+        lbl_barstatus->setText(QString());
         menuEdit->setTitle(QApplication::translate("MainWindow", "&Edit", nullptr));
         menuActions->setTitle(QApplication::translate("MainWindow", "&Actions", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
