@@ -11,18 +11,18 @@ class Control : public QObject
 signals:
     void UpdateProgressBar(int);
     void SetStatus(string);
+    void SetBarStatus(string);
+    void SetLayerNames(vector<string> *);
 
 public slots:
     void SetStatus(int);
     void SelectMap(string);
+    void SelectedLayer(int);
+    void SelectedInput(int);
 
 public:
     Control();
     ~Control();
-    void SelectedLayer(int);
-    void SelectedInput(int);
-
-    vector<string> * GetLayers();
 
 private:
     static Control * _this;
@@ -31,6 +31,7 @@ private:
     vector<vector<string>> * _layers;
     vector<string> * _layerNames;
     void LoadInputDevices();
+    vector<string> Split(string &, char);
 };
 
 #endif // CONTROL_H

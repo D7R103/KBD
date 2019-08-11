@@ -14,20 +14,16 @@ MainWindow::MainWindow(QWidget *parent) :
     _file = "";
 }
 
-string MainWindow::GetFile()
-{
-    //do something
-    return "";
-}
-
 void MainWindow::GetSelectedBoard()
 {
     int i =  ui->box_selectboard->currentIndex();
+    SelectedInput(i);
 }
 
 void MainWindow::GetSelectedLayer()
 {
     int i =  ui->box_selectlayer->currentIndex();
+    SelectedLayer(i);
 }
 
 void MainWindow::SetStatus(string status)
@@ -38,15 +34,13 @@ void MainWindow::SetStatus(string status)
 void MainWindow::StartModification()
 {
     SetStatus(1);
-    QString i = QString::fromStdString(_status);
-    ui->lbl_status->setText(i);
+    ui->lbl_status->setText(QString::fromStdString(_status));
 }
 
 void MainWindow::StopModification()
 {
     SetStatus(0);
-    QString i = QString::fromStdString(_status);
-    ui->lbl_status->setText(i);
+    ui->lbl_status->setText(QString::fromStdString(_status));
 }
 
 void MainWindow::OpenBrowseWindow()
@@ -71,33 +65,37 @@ void MainWindow::showEvent(QShowEvent *)
 
     if (_file != "" && _fileSelectionChanged) // prevents re-reading of file
     {
+        ui->bar_progress->show();
+        ui->box_selectlayer->clear();
         SelectMap(_filePath);
         _fileSelectionChanged = false;
     }
 }
 
-void MainWindow::SetSelectInput(vector<string> inputs)
+void MainWindow::SetSelectInput(vector<string> * inputs)
 {
-    for (size_t i = 0; i < inputs.size(); i++)
+    for (size_t i = 0; i < inputs->size(); i++)
     {
-        QString item = QString::fromStdString(inputs.at(i));
-        ui->box_selectboard->addItem(item);
+        ui->box_selectboard->addItem(QString::fromStdString(inputs->at(i)));
     }
 }
 
-void MainWindow::SetSelectLayer()
+void MainWindow::SetSelectLayer(vector<string> * layers)
 {
-    vector<string> layers ;//= *_c->GetLayers();
-    for (size_t i = 0; i < layers.size(); i++)
+    for (size_t i = 0; i < layers->size(); i++)
     {
-        QString item = QString::fromStdString(layers.at(i));
-        ui->box_selectlayer->addItem(item);
+        ui->box_selectlayer->addItem(QString::fromStdString(layers->at(i)));
     }
 }
 
 void MainWindow::UpdateProgressBar(int percent)
 {
     ui->bar_progress->setValue(percent);
+}
+
+void MainWindow::SetBarStatus(string status)
+{
+    ui->statusBar->showMessage(QString::fromStdString(status));
 }
 
 MainWindow::~MainWindow()

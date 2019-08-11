@@ -13,6 +13,7 @@
 #include <iterator>
 #include <fenv.h>
 #include <math.h>
+#include <sstream>
 
 using std::string;
 using std::wstring;

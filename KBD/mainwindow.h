@@ -18,11 +18,6 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void SetSelectInput(vector<string>);
-    void SetSelectLayer();
-    void UpdateProgressStatus(string);
-    string GetFile();
-
 private slots:
     void GetSelectedBoard();
     void GetSelectedLayer();
@@ -34,10 +29,15 @@ private slots:
 public slots:
     void UpdateProgressBar(int);
     void SetStatus(string);
+    void SetBarStatus(string);
+    void SetSelectInput(vector<string> *);
+    void SetSelectLayer(vector<string> *);
 
 signals:
     void SetStatus(int);
     void SelectMap(string);
+    void SelectedLayer(int);
+    void SelectedInput(int);
 
 private:
     Ui::MainWindow *ui;
