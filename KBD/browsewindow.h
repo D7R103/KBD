@@ -21,6 +21,9 @@ public:
     string GetFilePath();
     ~BrowseWindow();
 
+public slots:
+    void SetWorkingDir(string);
+
 private slots:
     void CloseWindow();
     void GetSelected();
@@ -31,6 +34,8 @@ private:
     Ui::BrowseWindow *ui;
     string _file, _filePath;
     QFileSystemModel * model;
+    string _path;
+
     void LoadExplorer();
     void closeEvent(QCloseEvent *);
 };

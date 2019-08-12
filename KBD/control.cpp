@@ -10,6 +10,39 @@ Control::Control()
     _numDevices = 0;
 }
 
+void Control::LoadOverrideConfig()
+{
+    string path = "./override.config";
+    //read file
+    ifstream file(path, ifstream::in|ifstream::binary);
+
+    string load_dir, device_dir, write_dir;
+
+    for (string line; getline(file, line);)
+    {
+        line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
+
+        if (line.find("load_dir") == 0)
+        {
+            load_dir = Split(line, ':').at(1);
+            cout << "Loading from : " << load_dir << endl;
+        }
+        if (line.find("device_dir") == 0)
+        {
+            device_dir = Split(line, ':').at(1);
+            cout << "Devices @ : " << device_dir << endl;
+        }
+        if (line.find("write_dir") == 0)
+        {
+            write_dir = Split(line, ':').at(1);
+            cout << "Writing to : " << write_dir << endl;
+        }
+    }
+
+    file.close();
+    //edit inputs accordingly
+}
+
 void Control::LoadInputDevices()
 {
     //
@@ -115,6 +148,8 @@ void Control::SelectMap(string filePath)
     UpdateProgressBar(percent);
     SetBarStatus("Process Done");
     SetLayerNames(_layerNames);
+
+    file.close();
 }
 
 vector<string> Control::Split(string & in, char delim)

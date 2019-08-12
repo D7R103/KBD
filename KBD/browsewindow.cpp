@@ -12,18 +12,25 @@ BrowseWindow::BrowseWindow(QWidget *parent) :
 
 void BrowseWindow::LoadExplorer()
 {
+    QDir path;
+    path.setPath(QString::fromStdString(_path));
     model = new QFileSystemModel();
-    model->setRootPath(QDir::homePath());
+    model->setRootPath(path.path());
     QStringList filter;
     filter << "*.vmap";
     model->setNameFilters(filter);
     model->setNameFilterDisables(false);
     ui->tr_explorer->setModel(model);
-    ui->tr_explorer->setRootIndex(model->index(QDir::homePath()));
+    ui->tr_explorer->setRootIndex(model->index(path.path()));
     ui->tr_explorer->hideColumn(1);
     ui->tr_explorer->setSortingEnabled(true);
     ui->tr_explorer->sortByColumn(0, Qt::SortOrder::AscendingOrder);
     ui->tr_explorer->update();
+}
+
+void BrowseWindow::SetWorkingDir(string dir)
+{
+    _path = dir;
 }
 
 void BrowseWindow::closeEvent(QCloseEvent *)

@@ -56,6 +56,7 @@ SOURCES       = ../KBD/browsewindow.cpp \
 		../KBD/confirmdialog.cpp \
 		../KBD/control.cpp \
 		../KBD/fileeditor.cpp \
+		../KBD/fileio.cpp \
 		../KBD/interposer.cpp \
 		../KBD/main.cpp \
 		../KBD/mainwindow.cpp moc_browsewindow.cpp \
@@ -68,6 +69,7 @@ OBJECTS       = browsewindow.o \
 		confirmdialog.o \
 		control.o \
 		fileeditor.o \
+		fileio.o \
 		interposer.o \
 		main.o \
 		mainwindow.o \
@@ -77,7 +79,8 @@ OBJECTS       = browsewindow.o \
 		moc_fileeditor.o \
 		moc_interposer.o \
 		moc_mainwindow.o
-DIST          = /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
+DIST          = ../KBD/override.config \
+		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/common/unix.conf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/common/linux.conf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/common/sanitize.conf \
@@ -274,12 +277,14 @@ DIST          = /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../KBD/confirmdialog.h \
 		../KBD/control.h \
 		../KBD/fileeditor.h \
+		../KBD/fileio.h \
 		../KBD/interposer.h \
 		../KBD/mainwindow.h \
 		../KBD/stdafx.h ../KBD/browsewindow.cpp \
 		../KBD/confirmdialog.cpp \
 		../KBD/control.cpp \
 		../KBD/fileeditor.cpp \
+		../KBD/fileio.cpp \
 		../KBD/interposer.cpp \
 		../KBD/main.cpp \
 		../KBD/mainwindow.cpp
@@ -704,8 +709,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../KBD/browsewindow.h ../KBD/confirmdialog.h ../KBD/control.h ../KBD/fileeditor.h ../KBD/interposer.h ../KBD/mainwindow.h ../KBD/stdafx.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../KBD/browsewindow.cpp ../KBD/confirmdialog.cpp ../KBD/control.cpp ../KBD/fileeditor.cpp ../KBD/interposer.cpp ../KBD/main.cpp ../KBD/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../KBD/browsewindow.h ../KBD/confirmdialog.h ../KBD/control.h ../KBD/fileeditor.h ../KBD/fileio.h ../KBD/interposer.h ../KBD/mainwindow.h ../KBD/stdafx.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../KBD/browsewindow.cpp ../KBD/confirmdialog.cpp ../KBD/control.cpp ../KBD/fileeditor.cpp ../KBD/fileio.cpp ../KBD/interposer.cpp ../KBD/main.cpp ../KBD/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../KBD/browsewindow.ui ../KBD/confirmdialog.ui ../KBD/fileeditor.ui ../KBD/mainwindow.ui $(DISTDIR)/
 
 
@@ -1949,6 +1954,9 @@ fileeditor.o: ../KBD/fileeditor.cpp ../KBD/fileeditor.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fileeditor.o ../KBD/fileeditor.cpp
 
+fileio.o: ../KBD/fileio.cpp ../KBD/fileio.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fileio.o ../KBD/fileio.cpp
+
 interposer.o: ../KBD/interposer.cpp ../KBD/interposer.h \
 		../KBD/stdafx.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QObject \
@@ -2399,8 +2407,6 @@ mainwindow.o: ../KBD/mainwindow.cpp ../KBD/mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../KBD/mainwindow.cpp
 

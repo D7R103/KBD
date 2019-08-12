@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'fileeditor.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.12.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -121,48 +121,48 @@ public:
 
     void retranslateUi(QMainWindow *FileEditor)
     {
-        FileEditor->setWindowTitle(QCoreApplication::translate("FileEditor", "MainWindow", nullptr));
-        actionSave->setText(QCoreApplication::translate("FileEditor", "Save", nullptr));
-#if QT_CONFIG(shortcut)
-        actionSave->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+S", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionUndo->setText(QCoreApplication::translate("FileEditor", "Undo", nullptr));
-#if QT_CONFIG(shortcut)
-        actionUndo->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+Z", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionRedo->setText(QCoreApplication::translate("FileEditor", "Redo", nullptr));
-#if QT_CONFIG(shortcut)
-        actionRedo->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+Shift+Z", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionNew_Layer->setText(QCoreApplication::translate("FileEditor", "New Layer", nullptr));
-#if QT_CONFIG(shortcut)
-        actionNew_Layer->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+L", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionNew_Key_Binding->setText(QCoreApplication::translate("FileEditor", "New Key Binding", nullptr));
-#if QT_CONFIG(shortcut)
-        actionNew_Key_Binding->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+K", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionDocumentation->setText(QCoreApplication::translate("FileEditor", "Documentation", nullptr));
-#if QT_CONFIG(shortcut)
-        actionDocumentation->setShortcut(QCoreApplication::translate("FileEditor", "F1", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionReturn->setText(QCoreApplication::translate("FileEditor", "Return", nullptr));
-#if QT_CONFIG(shortcut)
-        actionReturn->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+Q", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionComment->setText(QCoreApplication::translate("FileEditor", "Insert Comment", nullptr));
-#if QT_CONFIG(tooltip)
-        actionComment->setToolTip(QCoreApplication::translate("FileEditor", "Insert Comment", nullptr));
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(shortcut)
-        actionComment->setShortcut(QCoreApplication::translate("FileEditor", "Ctrl+Shift+C", nullptr));
-#endif // QT_CONFIG(shortcut)
-        btn_save->setText(QCoreApplication::translate("FileEditor", "Save", nullptr));
-        btn_exit->setText(QCoreApplication::translate("FileEditor", "Exit", nullptr));
-        menuFile->setTitle(QCoreApplication::translate("FileEditor", "&File", nullptr));
-        menuEdit->setTitle(QCoreApplication::translate("FileEditor", "&Edit", nullptr));
-        menuCommands->setTitle(QCoreApplication::translate("FileEditor", "&Commands", nullptr));
-        menu_Help->setTitle(QCoreApplication::translate("FileEditor", "&Help", nullptr));
+        FileEditor->setWindowTitle(QApplication::translate("FileEditor", "MainWindow", nullptr));
+        actionSave->setText(QApplication::translate("FileEditor", "Save", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionSave->setShortcut(QApplication::translate("FileEditor", "Ctrl+S", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionUndo->setText(QApplication::translate("FileEditor", "Undo", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionUndo->setShortcut(QApplication::translate("FileEditor", "Ctrl+Z", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionRedo->setText(QApplication::translate("FileEditor", "Redo", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionRedo->setShortcut(QApplication::translate("FileEditor", "Ctrl+Shift+Z", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionNew_Layer->setText(QApplication::translate("FileEditor", "New Layer", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionNew_Layer->setShortcut(QApplication::translate("FileEditor", "Ctrl+L", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionNew_Key_Binding->setText(QApplication::translate("FileEditor", "New Key Binding", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionNew_Key_Binding->setShortcut(QApplication::translate("FileEditor", "Ctrl+K", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionDocumentation->setText(QApplication::translate("FileEditor", "Documentation", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionDocumentation->setShortcut(QApplication::translate("FileEditor", "F1", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionReturn->setText(QApplication::translate("FileEditor", "Return", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionReturn->setShortcut(QApplication::translate("FileEditor", "Ctrl+Q", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionComment->setText(QApplication::translate("FileEditor", "Insert Comment", nullptr));
+#ifndef QT_NO_TOOLTIP
+        actionComment->setToolTip(QApplication::translate("FileEditor", "Insert Comment", nullptr));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionComment->setShortcut(QApplication::translate("FileEditor", "Ctrl+Shift+C", nullptr));
+#endif // QT_NO_SHORTCUT
+        btn_save->setText(QApplication::translate("FileEditor", "Save", nullptr));
+        btn_exit->setText(QApplication::translate("FileEditor", "Exit", nullptr));
+        menuFile->setTitle(QApplication::translate("FileEditor", "&File", nullptr));
+        menuEdit->setTitle(QApplication::translate("FileEditor", "&Edit", nullptr));
+        menuCommands->setTitle(QApplication::translate("FileEditor", "&Commands", nullptr));
+        menu_Help->setTitle(QApplication::translate("FileEditor", "&Help", nullptr));
     } // retranslateUi
 
 };
