@@ -9,6 +9,9 @@ int main(int argc, char *argv[])
     Interposer * i = new Interposer();
 
     MainWindow * _w = &i->w;
+    Control * _c = &i->c;
+
+    _c->LoadOverrideConfig();
 
     _w->show();
 

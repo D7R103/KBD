@@ -250,6 +250,7 @@ DIST          = /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/qt_config.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/toolchain.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -466,6 +467,7 @@ Makefile: KBD.pro /apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf /apt/
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/qt_config.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/toolchain.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -663,6 +665,7 @@ Makefile: KBD.pro /apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf /apt/
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/qt_config.prf:
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf:
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/exclusive_builds.prf:
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/toolchain.prf:
 /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/default_pre.prf:
@@ -2396,8 +2399,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 

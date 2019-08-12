@@ -27,8 +27,9 @@ public:
     Control();
     ~Control();
 
+    void LoadOverrideConfig();
+
 private:
-    static Control * _this;
     int _status, _inputDevID, _layerID, _numDevices;
     vector<string> * _devices;
     vector<vector<string>> * _layers;

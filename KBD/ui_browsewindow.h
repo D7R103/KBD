@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'browsewindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.12.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -68,11 +68,11 @@ public:
 
     void retranslateUi(QMainWindow *BrowseWindow)
     {
-        BrowseWindow->setWindowTitle(QCoreApplication::translate("BrowseWindow", "Browse...", nullptr));
-        btn_cancel->setText(QCoreApplication::translate("BrowseWindow", "Cancel", nullptr));
-        btn_ok->setText(QCoreApplication::translate("BrowseWindow", "Ok", nullptr));
-        lbl_vmap->setText(QCoreApplication::translate("BrowseWindow", "Select VMAP File to Load...", nullptr));
-        lbl_selectedfile->setText(QCoreApplication::translate("BrowseWindow", "Selected : ", nullptr));
+        BrowseWindow->setWindowTitle(QApplication::translate("BrowseWindow", "Browse...", nullptr));
+        btn_cancel->setText(QApplication::translate("BrowseWindow", "Cancel", nullptr));
+        btn_ok->setText(QApplication::translate("BrowseWindow", "Ok", nullptr));
+        lbl_vmap->setText(QApplication::translate("BrowseWindow", "Select VMAP File to Load...", nullptr));
+        lbl_selectedfile->setText(QApplication::translate("BrowseWindow", "Selected : ", nullptr));
     } // retranslateUi
 
 };
