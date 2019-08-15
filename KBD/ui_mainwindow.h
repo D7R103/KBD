@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.12.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,7 +19,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -46,12 +45,13 @@ public:
     QComboBox *box_selectlayer;
     QLabel *lbl_selectlayer;
     QLabel *lbl_fileloaded;
+    QPushButton *btn_forcerescan;
+    QLabel *lbl_barstatus;
     QMenuBar *menuBar;
     QMenu *menuEdit;
     QMenu *menuActions;
     QMenu *menuFile;
     QMenu *menuHelp;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -84,7 +84,7 @@ public:
         bar_progress->setValue(0);
         lbl_selectfile = new QLabel(centralWidget);
         lbl_selectfile->setObjectName(QString::fromUtf8("lbl_selectfile"));
-        lbl_selectfile->setGeometry(QRect(11, 80, 110, 17));
+        lbl_selectfile->setGeometry(QRect(11, 107, 110, 17));
         lbl_selectboard = new QLabel(centralWidget);
         lbl_selectboard->setObjectName(QString::fromUtf8("lbl_selectboard"));
         lbl_selectboard->setGeometry(QRect(11, 20, 180, 17));
@@ -94,7 +94,7 @@ public:
         box_selectboard->setMouseTracking(false);
         btn_selectfile = new QPushButton(centralWidget);
         btn_selectfile->setObjectName(QString::fromUtf8("btn_selectfile"));
-        btn_selectfile->setGeometry(QRect(10, 100, 104, 25));
+        btn_selectfile->setGeometry(QRect(10, 127, 104, 25));
         btn_selectfile->setCursor(QCursor(Qt::PointingHandCursor));
         lbl_systemstatus = new QLabel(centralWidget);
         lbl_systemstatus->setObjectName(QString::fromUtf8("lbl_systemstatus"));
@@ -111,11 +111,18 @@ public:
         lbl_selectlayer->setGeometry(QRect(302, 100, 159, 17));
         lbl_fileloaded = new QLabel(centralWidget);
         lbl_fileloaded->setObjectName(QString::fromUtf8("lbl_fileloaded"));
-        lbl_fileloaded->setGeometry(QRect(10, 130, 111, 17));
+        lbl_fileloaded->setGeometry(QRect(10, 156, 111, 17));
+        btn_forcerescan = new QPushButton(centralWidget);
+        btn_forcerescan->setObjectName(QString::fromUtf8("btn_forcerescan"));
+        btn_forcerescan->setGeometry(QRect(10, 70, 104, 25));
+        btn_forcerescan->setCursor(QCursor(Qt::PointingHandCursor));
+        lbl_barstatus = new QLabel(centralWidget);
+        lbl_barstatus->setObjectName(QString::fromUtf8("lbl_barstatus"));
+        lbl_barstatus->setGeometry(QRect(0, 290, 241, 17));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 476, 22));
+        menuBar->setGeometry(QRect(0, 0, 476, 23));
         menuEdit = new QMenu(menuBar);
         menuEdit->setObjectName(QString::fromUtf8("menuEdit"));
         menuActions = new QMenu(menuBar);
@@ -125,10 +132,6 @@ public:
         menuHelp = new QMenu(menuBar);
         menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         MainWindow->setMenuBar(menuBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        statusBar->setCursor(QCursor(Qt::ArrowCursor));
-        MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdit->menuAction());
@@ -152,50 +155,57 @@ public:
         QObject::connect(btn_selectfile, SIGNAL(clicked()), MainWindow, SLOT(OpenBrowseWindow()));
         QObject::connect(actionOpen, SIGNAL(triggered()), MainWindow, SLOT(OpenBrowseWindow()));
         QObject::connect(actionNew_Map_File, SIGNAL(triggered()), MainWindow, SLOT(OpenEditWindow()));
+        QObject::connect(btn_forcerescan, SIGNAL(clicked()), MainWindow, SLOT(ForceRescan()));
+        QObject::connect(actionEdit_Current_Map_File, SIGNAL(triggered()), MainWindow, SLOT(OpenEditWindow_LoadFile()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Keyboard Input System", nullptr));
-        actionNew_Map_File->setText(QCoreApplication::translate("MainWindow", "New Map File", nullptr));
-#if QT_CONFIG(shortcut)
-        actionNew_Map_File->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+N", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionStart_Modification->setText(QCoreApplication::translate("MainWindow", "Start Modification", nullptr));
-#if QT_CONFIG(shortcut)
-        actionStart_Modification->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+R", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionStop_Modification->setText(QCoreApplication::translate("MainWindow", "Stop Modification", nullptr));
-#if QT_CONFIG(shortcut)
-        actionStop_Modification->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Shift+R", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionDocumentation->setText(QCoreApplication::translate("MainWindow", "Documentation", nullptr));
-#if QT_CONFIG(shortcut)
-        actionDocumentation->setShortcut(QCoreApplication::translate("MainWindow", "F1", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
-        actionExit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
-#if QT_CONFIG(shortcut)
-        actionExit->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Q", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionOpen->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
-#if QT_CONFIG(shortcut)
-        actionOpen->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+O", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionEdit_Current_Map_File->setText(QCoreApplication::translate("MainWindow", "Edit Current Map File", nullptr));
-        lbl_selectfile->setText(QCoreApplication::translate("MainWindow", "Select Map File", nullptr));
-        lbl_selectboard->setText(QCoreApplication::translate("MainWindow", "Select Board to Alter Input", nullptr));
-        btn_selectfile->setText(QCoreApplication::translate("MainWindow", "Browse...", nullptr));
-        lbl_systemstatus->setText(QCoreApplication::translate("MainWindow", "System status :", nullptr));
-        lbl_status->setText(QCoreApplication::translate("MainWindow", "Stopped", nullptr));
-        lbl_selectlayer->setText(QCoreApplication::translate("MainWindow", "Select Layer", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Keyboard Input System", nullptr));
+        actionNew_Map_File->setText(QApplication::translate("MainWindow", "New Map File", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionNew_Map_File->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionStart_Modification->setText(QApplication::translate("MainWindow", "Start Modification", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionStart_Modification->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionStop_Modification->setText(QApplication::translate("MainWindow", "Stop Modification", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionStop_Modification->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+R", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionDocumentation->setText(QApplication::translate("MainWindow", "Documentation", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionDocumentation->setShortcut(QApplication::translate("MainWindow", "F1", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionAbout->setText(QApplication::translate("MainWindow", "About", nullptr));
+        actionExit->setText(QApplication::translate("MainWindow", "Quit", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionExit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionOpen->setText(QApplication::translate("MainWindow", "Open", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionOpen->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionEdit_Current_Map_File->setText(QApplication::translate("MainWindow", "Edit Current Map File", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionEdit_Current_Map_File->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+E", nullptr));
+#endif // QT_NO_SHORTCUT
+        lbl_selectfile->setText(QApplication::translate("MainWindow", "Select Map File", nullptr));
+        lbl_selectboard->setText(QApplication::translate("MainWindow", "Select Board to Alter Input", nullptr));
+        btn_selectfile->setText(QApplication::translate("MainWindow", "Browse...", nullptr));
+        lbl_systemstatus->setText(QApplication::translate("MainWindow", "System status :", nullptr));
+        lbl_status->setText(QApplication::translate("MainWindow", "Stopped", nullptr));
+        lbl_selectlayer->setText(QApplication::translate("MainWindow", "Select Layer", nullptr));
         lbl_fileloaded->setText(QString());
-        menuEdit->setTitle(QCoreApplication::translate("MainWindow", "&Edit", nullptr));
-        menuActions->setTitle(QCoreApplication::translate("MainWindow", "&Actions", nullptr));
-        menuFile->setTitle(QCoreApplication::translate("MainWindow", "&File", nullptr));
-        menuHelp->setTitle(QCoreApplication::translate("MainWindow", "&Help", nullptr));
+        btn_forcerescan->setText(QApplication::translate("MainWindow", "Rescan...", nullptr));
+        lbl_barstatus->setText(QString());
+        menuEdit->setTitle(QApplication::translate("MainWindow", "&Edit", nullptr));
+        menuActions->setTitle(QApplication::translate("MainWindow", "&Actions", nullptr));
+        menuFile->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));
     } // retranslateUi
 
 };

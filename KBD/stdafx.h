@@ -13,6 +13,8 @@
 #include <iterator>
 #include <fenv.h>
 #include <math.h>
+#include <sstream>
+#include <glob.h>
 
 using std::string;
 using std::wstring;
@@ -26,5 +28,7 @@ using std::ofstream;
 using std::nearbyint;
 
 using namespace std::placeholders;
+
+extern string LOADDIR, DEVICEDIR, WRITEDIR;
 
 #endif // STDAFX_H

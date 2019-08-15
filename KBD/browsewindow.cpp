@@ -6,20 +6,20 @@ BrowseWindow::BrowseWindow(QWidget *parent) :
     ui(new Ui::BrowseWindow)
 {
     ui->setupUi(this);
-
-    LoadExplorer();
 }
 
 void BrowseWindow::LoadExplorer()
 {
+    QDir path;
+    path.setPath(QString::fromStdString(_path));
     model = new QFileSystemModel();
-    model->setRootPath(QDir::homePath());
+    model->setRootPath(path.path());
     QStringList filter;
     filter << "*.vmap";
     model->setNameFilters(filter);
     model->setNameFilterDisables(false);
     ui->tr_explorer->setModel(model);
-    ui->tr_explorer->setRootIndex(model->index(QDir::homePath()));
+    ui->tr_explorer->setRootIndex(model->index(path.path()));
     ui->tr_explorer->hideColumn(1);
     ui->tr_explorer->setSortingEnabled(true);
     ui->tr_explorer->sortByColumn(0, Qt::SortOrder::AscendingOrder);
@@ -29,6 +29,28 @@ void BrowseWindow::LoadExplorer()
 void BrowseWindow::closeEvent(QCloseEvent *)
 {
     CloseWindow();
+}
+
+void BrowseWindow::showEvent(QShowEvent *)
+{
+    _path = LOADDIR;
+
+    // if path is ~ shortened
+    if (_path.find("~/") == 0)
+    {
+        if (_path == "~/")
+        {
+            _path = QDir::homePath().toStdString();
+        }
+        else
+        {
+            _path.erase(std::remove(_path.begin(), _path.end(), '~'), _path.end());
+            _path = QDir::homePath().toStdString() + _path;
+        }
+    }
+    // else path == absolute || path == relitive (ie ../ || ./)
+
+    LoadExplorer();
 }
 
 void BrowseWindow::CloseWindow()

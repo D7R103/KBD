@@ -11,6 +11,9 @@ FileEditor::FileEditor(QWidget *parent) :
     ui->txt_edit->setLineWrapMode(mode);
     ui->txt_edit->setTabChangesFocus(false);
     ui->txt_edit->setTabStopWidth(16);
+
+    _saveState = _fileChanged = false;
+    _path = "";
 }
 
 void FileEditor::SetPath(int p, string path)
@@ -18,8 +21,14 @@ void FileEditor::SetPath(int p, string path)
     ui->txt_edit->setPlainText("");
     if (p != 0)
     {
+        _path = path;
         Load(path);
     }
+}
+
+bool FileEditor::FileChanged()
+{
+    return _fileChanged;
 }
 
 void FileEditor::Load(string path)
@@ -27,12 +36,22 @@ void FileEditor::Load(string path)
     // read file
     if (path != "")
     {
-        //
+        ifstream file(path, ifstream::in|ifstream::binary);
+
+        string contents;
+        for (string line; getline(file, line);)
+        {
+            contents += line + "\n";
+        }
+
+        QString text = QString::fromStdString(contents);
+        // insert into the box
+        ui->txt_edit->setPlainText(text);
+
+        _saveState = true;
     }
-    // convert to QString
-    QString text;
-    // insert into the box
-    ui->txt_edit->setPlainText(text);
+
+    //else => new file...
 }
 
 void FileEditor::closeEvent(QCloseEvent *)
@@ -54,6 +73,16 @@ void FileEditor::CloseWindow()
         {
             this->hide();
             parentWidget()->show();
+        }
+        else
+        {
+            //write changes to file
+            string data = ui->txt_edit->toPlainText().toStdString();
+            //write to file...
+            if (_path != "")
+            {
+                _fileChanged = true;
+            }
         }
 
         cd->~ConfirmDialog();

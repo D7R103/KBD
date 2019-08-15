@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'confirmdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.12.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -50,9 +50,9 @@ public:
 
     void retranslateUi(QDialog *ConfirmDialog)
     {
-        ConfirmDialog->setWindowTitle(QCoreApplication::translate("ConfirmDialog", "Exit Without Saving?", nullptr));
-        label->setText(QCoreApplication::translate("ConfirmDialog", "Are you sure you want to exit?", nullptr));
-        label_2->setText(QCoreApplication::translate("ConfirmDialog", "(Changes will not be saved)", nullptr));
+        ConfirmDialog->setWindowTitle(QApplication::translate("ConfirmDialog", "Exit Without Saving?", nullptr));
+        label->setText(QApplication::translate("ConfirmDialog", "Are you sure you want to exit?", nullptr));
+        label_2->setText(QApplication::translate("ConfirmDialog", "(Changes will not be saved)", nullptr));
     } // retranslateUi
 
 };

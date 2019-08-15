@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include <QFileSystemModel>
 #include <QCloseEvent>
+#include <QShowEvent>
 #include <QTreeView>
 
 namespace Ui {
@@ -31,8 +32,11 @@ private:
     Ui::BrowseWindow *ui;
     string _file, _filePath;
     QFileSystemModel * model;
+    string _path;
+
     void LoadExplorer();
     void closeEvent(QCloseEvent *);
+    void showEvent(QShowEvent *);
 };
 
 #endif // BROWSEWINDOW_H

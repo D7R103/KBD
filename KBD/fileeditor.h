@@ -20,6 +20,8 @@ public:
 
     void SetPath(int, string path = "");
 
+    bool FileChanged();
+
 private slots:
     void CloseWindow();
     void InsertComment();
@@ -27,7 +29,9 @@ private slots:
 private:
     Ui::FileEditor *ui;
     ConfirmDialog *cd;
-    bool _saveState = false;
+    bool _saveState;
+    bool _fileChanged;
+    string _path;
 
     void Load(string);
     void closeEvent(QCloseEvent *);
