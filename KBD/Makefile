@@ -856,6 +856,7 @@ moc_browsewindow.cpp: browsewindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -1276,6 +1277,7 @@ moc_interposer.cpp: interposer.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -1416,6 +1418,7 @@ moc_mainwindow.cpp: mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -1588,6 +1591,7 @@ browsewindow.o: browsewindow.cpp browsewindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -2068,6 +2072,7 @@ interposer.o: interposer.cpp interposer.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -2215,6 +2220,7 @@ main.o: main.cpp /apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -2354,6 +2360,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QCloseEvent \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/QShowEvent \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QTreeView \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \

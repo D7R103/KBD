@@ -6,8 +6,6 @@ BrowseWindow::BrowseWindow(QWidget *parent) :
     ui(new Ui::BrowseWindow)
 {
     ui->setupUi(this);
-
-    LoadExplorer();
 }
 
 void BrowseWindow::LoadExplorer()
@@ -28,14 +26,31 @@ void BrowseWindow::LoadExplorer()
     ui->tr_explorer->update();
 }
 
-void BrowseWindow::SetWorkingDir(string dir)
-{
-    _path = dir;
-}
-
 void BrowseWindow::closeEvent(QCloseEvent *)
 {
     CloseWindow();
+}
+
+void BrowseWindow::showEvent(QShowEvent *)
+{
+    _path = LOADDIR;
+
+    // if path is ~ shortened
+    if (_path.find("~/") == 0)
+    {
+        if (_path == "~/")
+        {
+            _path = QDir::homePath().toStdString();
+        }
+        else
+        {
+            _path.erase(std::remove(_path.begin(), _path.end(), '~'), _path.end());
+            _path = QDir::homePath().toStdString() + _path;
+        }
+    }
+    // else path == absolute || path == relitive (ie ../ || ./)
+
+    LoadExplorer();
 }
 
 void BrowseWindow::CloseWindow()

@@ -57,6 +57,18 @@ void MainWindow::OpenEditWindow()
     fui->show();
 }
 
+void MainWindow::OpenEditWindow_LoadFile()
+{
+    if (_filePath != "")
+    {
+        this->hide();
+        fui->SetPath(1, _filePath);
+        fui->show();
+
+        _fileSelectionChanged = fui->FileChanged();
+    }
+}
+
 void MainWindow::showEvent(QShowEvent *)
 {
     _file = bui->GetFile();

@@ -16,26 +16,21 @@ void Control::LoadOverrideConfig()
     //read file
     ifstream file(path, ifstream::in|ifstream::binary);
 
-    string load_dir, device_dir, write_dir;
-
     for (string line; getline(file, line);)
     {
         line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
 
         if (line.find("load_dir") == 0)
         {
-            load_dir = Split(line, ':').at(1);
-            cout << "Loading from : " << load_dir << endl;
+            LOADDIR = Split(line, ':').at(1);
         }
         if (line.find("device_dir") == 0)
         {
-            device_dir = Split(line, ':').at(1);
-            cout << "Devices @ : " << device_dir << endl;
+            DEVICEDIR = Split(line, ':').at(1);
         }
         if (line.find("write_dir") == 0)
         {
-            write_dir = Split(line, ':').at(1);
-            cout << "Writing to : " << write_dir << endl;
+            WRITEDIR = Split(line, ':').at(1);
         }
     }
 

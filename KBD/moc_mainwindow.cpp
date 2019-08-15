@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[21];
-    char stringdata0[292];
+    QByteArrayData data[22];
+    char stringdata0[316];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,12 +46,13 @@ QT_MOC_LITERAL(11, 136, 17), // "StartModification"
 QT_MOC_LITERAL(12, 154, 16), // "StopModification"
 QT_MOC_LITERAL(13, 171, 16), // "OpenBrowseWindow"
 QT_MOC_LITERAL(14, 188, 14), // "OpenEditWindow"
-QT_MOC_LITERAL(15, 203, 11), // "ForceRescan"
-QT_MOC_LITERAL(16, 215, 17), // "UpdateProgressBar"
-QT_MOC_LITERAL(17, 233, 12), // "SetBarStatus"
-QT_MOC_LITERAL(18, 246, 14), // "SetSelectInput"
-QT_MOC_LITERAL(19, 261, 15), // "vector<string>*"
-QT_MOC_LITERAL(20, 277, 14) // "SetSelectLayer"
+QT_MOC_LITERAL(15, 203, 23), // "OpenEditWindow_LoadFile"
+QT_MOC_LITERAL(16, 227, 11), // "ForceRescan"
+QT_MOC_LITERAL(17, 239, 17), // "UpdateProgressBar"
+QT_MOC_LITERAL(18, 257, 12), // "SetBarStatus"
+QT_MOC_LITERAL(19, 270, 14), // "SetSelectInput"
+QT_MOC_LITERAL(20, 285, 15), // "vector<string>*"
+QT_MOC_LITERAL(21, 301, 14) // "SetSelectLayer"
 
     },
     "MainWindow\0SetStatus\0\0SelectMap\0string\0"
@@ -60,8 +61,9 @@ QT_MOC_LITERAL(20, 277, 14) // "SetSelectLayer"
     "GetSelectedBoard\0GetSelectedLayer\0"
     "StartModification\0StopModification\0"
     "OpenBrowseWindow\0OpenEditWindow\0"
-    "ForceRescan\0UpdateProgressBar\0"
-    "SetBarStatus\0SetSelectInput\0vector<string>*\0"
+    "OpenEditWindow_LoadFile\0ForceRescan\0"
+    "UpdateProgressBar\0SetBarStatus\0"
+    "SetSelectInput\0vector<string>*\0"
     "SetSelectLayer"
 };
 #undef QT_MOC_LITERAL
@@ -72,7 +74,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -80,26 +82,27 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  104,    2, 0x06 /* Public */,
-       3,    1,  107,    2, 0x06 /* Public */,
-       5,    1,  110,    2, 0x06 /* Public */,
-       6,    1,  113,    2, 0x06 /* Public */,
-       7,    0,  116,    2, 0x06 /* Public */,
-       8,    0,  117,    2, 0x06 /* Public */,
+       1,    1,  109,    2, 0x06 /* Public */,
+       3,    1,  112,    2, 0x06 /* Public */,
+       5,    1,  115,    2, 0x06 /* Public */,
+       6,    1,  118,    2, 0x06 /* Public */,
+       7,    0,  121,    2, 0x06 /* Public */,
+       8,    0,  122,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    0,  118,    2, 0x08 /* Private */,
-      10,    0,  119,    2, 0x08 /* Private */,
-      11,    0,  120,    2, 0x08 /* Private */,
-      12,    0,  121,    2, 0x08 /* Private */,
-      13,    0,  122,    2, 0x08 /* Private */,
-      14,    0,  123,    2, 0x08 /* Private */,
-      15,    0,  124,    2, 0x08 /* Private */,
-      16,    1,  125,    2, 0x0a /* Public */,
-       1,    1,  128,    2, 0x0a /* Public */,
+       9,    0,  123,    2, 0x08 /* Private */,
+      10,    0,  124,    2, 0x08 /* Private */,
+      11,    0,  125,    2, 0x08 /* Private */,
+      12,    0,  126,    2, 0x08 /* Private */,
+      13,    0,  127,    2, 0x08 /* Private */,
+      14,    0,  128,    2, 0x08 /* Private */,
+      15,    0,  129,    2, 0x08 /* Private */,
+      16,    0,  130,    2, 0x08 /* Private */,
       17,    1,  131,    2, 0x0a /* Public */,
-      18,    1,  134,    2, 0x0a /* Public */,
-      20,    1,  137,    2, 0x0a /* Public */,
+       1,    1,  134,    2, 0x0a /* Public */,
+      18,    1,  137,    2, 0x0a /* Public */,
+      19,    1,  140,    2, 0x0a /* Public */,
+      21,    1,  143,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -117,11 +120,12 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
-    QMetaType::Void, 0x80000000 | 19,    2,
-    QMetaType::Void, 0x80000000 | 19,    2,
+    QMetaType::Void, 0x80000000 | 20,    2,
+    QMetaType::Void, 0x80000000 | 20,    2,
 
        0        // eod
 };
@@ -144,12 +148,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->StopModification(); break;
         case 10: _t->OpenBrowseWindow(); break;
         case 11: _t->OpenEditWindow(); break;
-        case 12: _t->ForceRescan(); break;
-        case 13: _t->UpdateProgressBar((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: _t->SetStatus((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 15: _t->SetBarStatus((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 16: _t->SetSelectInput((*reinterpret_cast< vector<string>*(*)>(_a[1]))); break;
-        case 17: _t->SetSelectLayer((*reinterpret_cast< vector<string>*(*)>(_a[1]))); break;
+        case 12: _t->OpenEditWindow_LoadFile(); break;
+        case 13: _t->ForceRescan(); break;
+        case 14: _t->UpdateProgressBar((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 15: _t->SetStatus((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 16: _t->SetBarStatus((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 17: _t->SetSelectInput((*reinterpret_cast< vector<string>*(*)>(_a[1]))); break;
+        case 18: _t->SetSelectLayer((*reinterpret_cast< vector<string>*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -228,13 +233,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 19)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 18;
+        _id -= 19;
     }
     return _id;
 }

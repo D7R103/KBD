@@ -25,6 +25,7 @@ private slots:
     void StopModification();
     void OpenBrowseWindow();
     void OpenEditWindow();
+    void OpenEditWindow_LoadFile();
     void ForceRescan();
 
 public slots:

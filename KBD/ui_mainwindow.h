@@ -156,6 +156,7 @@ public:
         QObject::connect(actionOpen, SIGNAL(triggered()), MainWindow, SLOT(OpenBrowseWindow()));
         QObject::connect(actionNew_Map_File, SIGNAL(triggered()), MainWindow, SLOT(OpenEditWindow()));
         QObject::connect(btn_forcerescan, SIGNAL(clicked()), MainWindow, SLOT(ForceRescan()));
+        QObject::connect(actionEdit_Current_Map_File, SIGNAL(triggered()), MainWindow, SLOT(OpenEditWindow_LoadFile()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -189,6 +190,9 @@ public:
         actionOpen->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", nullptr));
 #endif // QT_NO_SHORTCUT
         actionEdit_Current_Map_File->setText(QApplication::translate("MainWindow", "Edit Current Map File", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionEdit_Current_Map_File->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+E", nullptr));
+#endif // QT_NO_SHORTCUT
         lbl_selectfile->setText(QApplication::translate("MainWindow", "Select Map File", nullptr));
         lbl_selectboard->setText(QApplication::translate("MainWindow", "Select Board to Alter Input", nullptr));
         btn_selectfile->setText(QApplication::translate("MainWindow", "Browse...", nullptr));

@@ -3,13 +3,15 @@
 #include "mainwindow.h"
 #include "interposer.h"
 
+string LOADDIR, DEVICEDIR, WRITEDIR;
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Interposer * i = new Interposer();
 
-    MainWindow * _w = &i->w;
     Control * _c = &i->c;
+    MainWindow * _w = &i->w;
 
     _c->LoadOverrideConfig();
 

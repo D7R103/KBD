@@ -29,4 +29,6 @@ using std::nearbyint;
 
 using namespace std::placeholders;
 
+extern string LOADDIR, DEVICEDIR, WRITEDIR;
+
 #endif // STDAFX_H
