@@ -58,12 +58,14 @@ SOURCES       = browsewindow.cpp \
 		fileeditor.cpp \
 		interposer.cpp \
 		main.cpp \
-		mainwindow.cpp moc_browsewindow.cpp \
+		mainwindow.cpp \
+		saveasdialog.cpp moc_browsewindow.cpp \
 		moc_confirmdialog.cpp \
 		moc_control.cpp \
 		moc_fileeditor.cpp \
 		moc_interposer.cpp \
-		moc_mainwindow.cpp
+		moc_mainwindow.cpp \
+		moc_saveasdialog.cpp
 OBJECTS       = browsewindow.o \
 		confirmdialog.o \
 		control.o \
@@ -71,12 +73,14 @@ OBJECTS       = browsewindow.o \
 		interposer.o \
 		main.o \
 		mainwindow.o \
+		saveasdialog.o \
 		moc_browsewindow.o \
 		moc_confirmdialog.o \
 		moc_control.o \
 		moc_fileeditor.o \
 		moc_interposer.o \
-		moc_mainwindow.o
+		moc_mainwindow.o \
+		moc_saveasdialog.o
 DIST          = /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/common/unix.conf \
 		/apt/share/Qt/5.12.3/gcc_64/mkspecs/common/linux.conf \
@@ -276,13 +280,15 @@ DIST          = /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		fileeditor.h \
 		interposer.h \
 		mainwindow.h \
+		saveasdialog.h \
 		stdafx.h browsewindow.cpp \
 		confirmdialog.cpp \
 		control.cpp \
 		fileeditor.cpp \
 		interposer.cpp \
 		main.cpp \
-		mainwindow.cpp
+		mainwindow.cpp \
+		saveasdialog.cpp
 QMAKE_TARGET  = KBD
 DESTDIR       = 
 TARGET        = KBD
@@ -291,7 +297,7 @@ TARGET        = KBD
 first: all
 ####### Build rules
 
-KBD: ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h $(OBJECTS)  
+KBD: ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h ui_saveasdialog.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: KBD.pro /apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++/qmake.conf /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -704,9 +710,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents browsewindow.h confirmdialog.h control.h fileeditor.h interposer.h mainwindow.h stdafx.h $(DISTDIR)/
-	$(COPY_FILE) --parents browsewindow.cpp confirmdialog.cpp control.cpp fileeditor.cpp interposer.cpp main.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents browsewindow.ui confirmdialog.ui fileeditor.ui mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents browsewindow.h confirmdialog.h control.h fileeditor.h interposer.h mainwindow.h saveasdialog.h stdafx.h $(DISTDIR)/
+	$(COPY_FILE) --parents browsewindow.cpp confirmdialog.cpp control.cpp fileeditor.cpp interposer.cpp main.cpp mainwindow.cpp saveasdialog.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents browsewindow.ui confirmdialog.ui fileeditor.ui mainwindow.ui saveasdialog.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -738,9 +744,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /apt/share/Qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_browsewindow.cpp moc_confirmdialog.cpp moc_control.cpp moc_fileeditor.cpp moc_interposer.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_browsewindow.cpp moc_confirmdialog.cpp moc_control.cpp moc_fileeditor.cpp moc_interposer.cpp moc_mainwindow.cpp moc_saveasdialog.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_browsewindow.cpp moc_confirmdialog.cpp moc_control.cpp moc_fileeditor.cpp moc_interposer.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_browsewindow.cpp moc_confirmdialog.cpp moc_control.cpp moc_fileeditor.cpp moc_interposer.cpp moc_mainwindow.cpp moc_saveasdialog.cpp
 moc_browsewindow.cpp: browsewindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QMainWindow \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1154,6 +1160,8 @@ moc_fileeditor.cpp: fileeditor.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		moc_predefs.h \
 		/apt/share/Qt/5.12.3/gcc_64/bin/moc
 	/apt/share/Qt/5.12.3/gcc_64/bin/moc $(DEFINES) --include /home/in/git/KBD/KBD/moc_predefs.h -I/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++ -I/home/in/git/KBD/KBD -I/apt/share/Qt/5.12.3/gcc_64/include -I/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets -I/apt/share/Qt/5.12.3/gcc_64/include/QtGui -I/apt/share/Qt/5.12.3/gcc_64/include/QtCore -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include fileeditor.h -o moc_fileeditor.cpp
@@ -1298,6 +1306,8 @@ moc_interposer.cpp: interposer.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		moc_predefs.h \
 		/apt/share/Qt/5.12.3/gcc_64/bin/moc
 	/apt/share/Qt/5.12.3/gcc_64/bin/moc $(DEFINES) --include /home/in/git/KBD/KBD/moc_predefs.h -I/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++ -I/home/in/git/KBD/KBD -I/apt/share/Qt/5.12.3/gcc_64/include -I/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets -I/apt/share/Qt/5.12.3/gcc_64/include/QtGui -I/apt/share/Qt/5.12.3/gcc_64/include/QtCore -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include interposer.h -o moc_interposer.cpp
@@ -1439,17 +1449,127 @@ moc_mainwindow.cpp: mainwindow.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		moc_predefs.h \
 		/apt/share/Qt/5.12.3/gcc_64/bin/moc
 	/apt/share/Qt/5.12.3/gcc_64/bin/moc $(DEFINES) --include /home/in/git/KBD/KBD/moc_predefs.h -I/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++ -I/home/in/git/KBD/KBD -I/apt/share/Qt/5.12.3/gcc_64/include -I/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets -I/apt/share/Qt/5.12.3/gcc_64/include/QtGui -I/apt/share/Qt/5.12.3/gcc_64/include/QtCore -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+
+moc_saveasdialog.cpp: saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qline.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qimage.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfont.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		moc_predefs.h \
+		/apt/share/Qt/5.12.3/gcc_64/bin/moc
+	/apt/share/Qt/5.12.3/gcc_64/bin/moc $(DEFINES) --include /home/in/git/KBD/KBD/moc_predefs.h -I/apt/share/Qt/5.12.3/gcc_64/mkspecs/linux-g++ -I/home/in/git/KBD/KBD -I/apt/share/Qt/5.12.3/gcc_64/include -I/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets -I/apt/share/Qt/5.12.3/gcc_64/include/QtGui -I/apt/share/Qt/5.12.3/gcc_64/include/QtCore -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include saveasdialog.h -o moc_saveasdialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h
+compiler_uic_make_all: ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h ui_saveasdialog.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h
+	-$(DEL_FILE) ui_browsewindow.h ui_confirmdialog.h ui_fileeditor.h ui_mainwindow.h ui_saveasdialog.h
 ui_browsewindow.h: browsewindow.ui \
 		/apt/share/Qt/5.12.3/gcc_64/bin/uic
 	/apt/share/Qt/5.12.3/gcc_64/bin/uic browsewindow.ui -o ui_browsewindow.h
@@ -1465,6 +1585,10 @@ ui_fileeditor.h: fileeditor.ui \
 ui_mainwindow.h: mainwindow.ui \
 		/apt/share/Qt/5.12.3/gcc_64/bin/uic
 	/apt/share/Qt/5.12.3/gcc_64/bin/uic mainwindow.ui -o ui_mainwindow.h
+
+ui_saveasdialog.h: saveasdialog.ui \
+		/apt/share/Qt/5.12.3/gcc_64/bin/uic
+	/apt/share/Qt/5.12.3/gcc_64/bin/uic saveasdialog.ui -o ui_saveasdialog.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1914,6 +2038,8 @@ fileeditor.o: fileeditor.cpp fileeditor.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		ui_fileeditor.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QAction \
@@ -1949,8 +2075,7 @@ fileeditor.o: fileeditor.cpp fileeditor.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fileeditor.o fileeditor.cpp
 
 interposer.o: interposer.cpp interposer.h \
@@ -2092,7 +2217,9 @@ interposer.o: interposer.cpp interposer.h \
 		fileeditor.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interposer.o interposer.cpp
 
 main.o: main.cpp /apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
@@ -2241,6 +2368,8 @@ main.o: main.cpp /apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		interposer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
@@ -2381,6 +2510,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		confirmdialog.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
 		ui_mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/QVariant \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QAction \
@@ -2405,9 +2536,115 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressbar.h \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
 		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
+
+saveasdialog.o: saveasdialog.cpp saveasdialog.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qline.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qimage.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfont.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/apt/share/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_saveasdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o saveasdialog.o saveasdialog.cpp
 
 moc_browsewindow.o: moc_browsewindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_browsewindow.o moc_browsewindow.cpp
@@ -2426,6 +2663,9 @@ moc_interposer.o: moc_interposer.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_saveasdialog.o: moc_saveasdialog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_saveasdialog.o moc_saveasdialog.cpp
 
 ####### Install
 

@@ -84,7 +84,7 @@ public:
         FileEditor->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FileEditor);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 476, 22));
+        menubar->setGeometry(QRect(0, 0, 476, 23));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuEdit = new QMenu(menubar);
@@ -115,6 +115,10 @@ public:
         QObject::connect(btn_exit, SIGNAL(pressed()), FileEditor, SLOT(CloseWindow()));
         QObject::connect(actionReturn, SIGNAL(triggered()), FileEditor, SLOT(CloseWindow()));
         QObject::connect(actionComment, SIGNAL(triggered()), FileEditor, SLOT(InsertComment()));
+        QObject::connect(actionNew_Layer, SIGNAL(triggered()), FileEditor, SLOT(InsertLayer()));
+        QObject::connect(actionNew_Key_Binding, SIGNAL(triggered()), FileEditor, SLOT(InsertKeyBinding()));
+        QObject::connect(btn_save, SIGNAL(pressed()), FileEditor, SLOT(SaveFile()));
+        QObject::connect(actionSave, SIGNAL(triggered()), FileEditor, SLOT(SaveFile()));
 
         QMetaObject::connectSlotsByName(FileEditor);
     } // setupUi

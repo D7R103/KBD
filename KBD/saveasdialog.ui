@@ -1,21 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>SaveAsDialog</class>
- <widget name="SaveAsDialog" class="QWidget">
+ <widget class="QWidget" name="SaveAsDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>165</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="btn_ok">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>120</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_cancel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_file">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>70</y>
+     <width>291</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>131</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter File Name:</string>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction/>
- <connections/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveAsDialog</receiver>
+   <slot>SubmitName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveAsDialog</receiver>
+   <slot>CloseWindow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>SubmitName()</slot>
+  <slot>CloseWindow()</slot>
+ </slots>
 </ui>

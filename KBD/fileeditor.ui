@@ -74,7 +74,7 @@
      <x>0</x>
      <y>0</y>
      <width>476</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -229,11 +229,78 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionNew_Layer</sender>
+   <signal>triggered()</signal>
+   <receiver>FileEditor</receiver>
+   <slot>InsertLayer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew_Key_Binding</sender>
+   <signal>triggered()</signal>
+   <receiver>FileEditor</receiver>
+   <slot>InsertKeyBinding()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_save</sender>
+   <signal>pressed()</signal>
+   <receiver>FileEditor</receiver>
+   <slot>SaveFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave</sender>
+   <signal>triggered()</signal>
+   <receiver>FileEditor</receiver>
+   <slot>SaveFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>CloseWindow()</slot>
   <slot>InsertComment()</slot>
   <slot>Undo()</slot>
   <slot>Redo()</slot>
+  <slot>InsertLayer()</slot>
+  <slot>InsertKeyBinding()</slot>
+  <slot>SaveFile()</slot>
  </slots>
 </ui>

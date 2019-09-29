@@ -31,7 +31,8 @@ SOURCES += \
         fileeditor.cpp \
         interposer.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        saveasdialog.cpp
 
 HEADERS += \
         browsewindow.h \
@@ -40,13 +41,15 @@ HEADERS += \
         fileeditor.h \
         interposer.h \
         mainwindow.h \
+        saveasdialog.h \
         stdafx.h
 
 FORMS += \
         browsewindow.ui \
         confirmdialog.ui \
         fileeditor.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        saveasdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

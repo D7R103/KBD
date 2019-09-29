@@ -8,9 +8,20 @@ FileEditor::FileEditor(QWidget *parent) :
     ui->setupUi(this);
     QPlainTextEdit::LineWrapMode mode;
     mode = QPlainTextEdit::LineWrapMode::NoWrap;
+    QFont font("Courier");
+    font.setStyleHint(QFont::Monospace);
+
+    QPalette palette = ui->txt_edit->palette();
+    palette.setColor(QPalette::Base, Qt::black);
+    palette.setColor(QPalette::Text, Qt::lightGray);
+
+    ui->txt_edit->setFont(font);
+    ui->txt_edit->setPalette(palette);
     ui->txt_edit->setLineWrapMode(mode);
     ui->txt_edit->setTabChangesFocus(false);
-    ui->txt_edit->setTabStopWidth(16);
+    ui->txt_edit->setTabStopDistance(24);
+
+    text_f = ui->txt_edit->currentCharFormat();
 
     _saveState = _fileChanged = false;
     _path = "";
@@ -19,10 +30,15 @@ FileEditor::FileEditor(QWidget *parent) :
 void FileEditor::SetPath(int p, string path)
 {
     ui->txt_edit->setPlainText("");
+
     if (p != 0)
     {
         _path = path;
         Load(path);
+    }
+    else
+    {
+        _path = "";
     }
 }
 
@@ -76,13 +92,7 @@ void FileEditor::CloseWindow()
         }
         else
         {
-            //write changes to file
-            string data = ui->txt_edit->toPlainText().toStdString();
-            //write to file...
-            if (_path != "")
-            {
-                _fileChanged = true;
-            }
+            SaveFile();
         }
 
         cd->~ConfirmDialog();
@@ -95,6 +105,39 @@ void FileEditor::CloseWindow()
     }
 }
 
+void FileEditor::SaveFile()
+{
+    _fileChanged = true;
+    //write changes to file
+    string data = ui->txt_edit->toPlainText().toStdString();
+    //write to file...
+    ofstream file;
+
+    if (_path != "")
+    {
+        _fileChanged = true;
+        file.open(_path);
+    }
+    else
+    {
+        sa = new SaveAsDialog();
+        sa->exec();
+        string filename = sa->GetFileName();
+        string path = WRITEDIR + "/" + filename + ".vmap";
+
+        ofstream file(path);
+        file << data << endl << std::flush;
+        file.close();
+
+        sa->~SaveAsDialog();
+        sa = nullptr;
+    }
+
+    file << data << endl << std::flush;
+    file.close();
+    _saveState = true;
+}
+
 void FileEditor::InsertComment()
 {
     //get current line
@@ -102,14 +145,28 @@ void FileEditor::InsertComment()
     //goto beginning of line
     ui->txt_edit->moveCursor(QTextCursor::StartOfLine, QTextCursor::MoveAnchor);
     //insert "# "
-    QString text = ui->txt_edit->toPlainText();
-    ui->txt_edit->setPlainText("# " + text);
+    ui->txt_edit->insertPlainText("# ");
     //nav back to position
     ui->txt_edit->setTextCursor(cur);
+}
+
+void FileEditor::InsertLayer()
+{
+    //find immidiate '</layer>'
+    //paste in layer info
+}
+
+void FileEditor::InsertKeyBinding()
+{
+    //find immidiate '}' at col == 0
+    //paste in key info
+
+    /* may add some builder for keys */
 }
 
 FileEditor::~FileEditor()
 {
     delete ui;
     delete cd;
+    delete sa;
 }

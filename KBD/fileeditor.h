@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include <QTextCharFormat>
 #include "stdafx.h"
 #include "confirmdialog.h"
+#include "saveasdialog.h"
 
 namespace Ui {
 class FileEditor;
@@ -25,13 +27,19 @@ public:
 private slots:
     void CloseWindow();
     void InsertComment();
+    void InsertLayer();
+    void InsertKeyBinding();
+    void SaveFile();
 
 private:
-    Ui::FileEditor *ui;
-    ConfirmDialog *cd;
+    Ui::FileEditor * ui;
+    ConfirmDialog * cd;
+    SaveAsDialog * sa;
     bool _saveState;
     bool _fileChanged;
     string _path;
+
+    QTextCharFormat text_f;
 
     void Load(string);
     void closeEvent(QCloseEvent *);
